@@ -1,0 +1,27 @@
+{
+   "name": "SEPx",
+   "version": "0.1",
+   "description": "Select SEP in-line citation and get bibliography entry without disrupting your flow",
+   "manifest_version": 2,
+   "permissions":["declarativeContent","http://plato.stanford.edu/*/*","https://plato.stanford.edu/*/*"],
+   "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "icons":{
+      "16":"storeicon16.png",
+      "48":"storeicon48.png",
+      "128":"storeicon128.png"
+    },
+    "browser_action": {
+      "default_icon": "icon.png",
+      "default_popup":"popup.html",
+      "default_title":"Select something like: (Klein 1999) or Klein (1999).\nSelect only the last author if there are more than one.\nAt this point primary literature is not supported: there has to be a date. "
+    },
+    "content_scripts": [
+      {
+      "matches": ["http://plato.stanford.edu/*/*","https://plato.stanford.edu/*/*"],
+      "js": ["contentScript.js"]
+    }
+  ]
+ }
